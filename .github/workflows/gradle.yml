@@ -32,13 +32,13 @@ jobs:
         distribution: 'temurin'
     - name: Build with Gradle
       run: |
-         ./gradlew jar --debug
+         ./gradlew jar
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
           echo "git_hash=$git_hash" >> $GITHUB_ENV
           echo "snapshotVersion=3.1.1-SNAPSHOT" >> $GITHUB_ENV
-          echo "artifactPath=$(pwd)/builds" >> $GITHUB_ENV
+          echo "artifactPath=$(pwd)/build" >> $GITHUB_ENV
     - name: Upload mod jar
       uses: actions/upload-artifact@v3
       with:
         name: Mod-${{ env.snapshotVersion }}-${{ env.git_hash }}.jar
-        path: ${{ env.artifactPath }}/17_song-player-${{ env.snapshotVersion }}.jar
+        path: ${{ env.artifactPath }}/devlibs/song-player-3.1.1-dev.jar
