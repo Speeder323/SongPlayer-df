@@ -440,13 +440,13 @@ public class SongHandler {
     private void setCreativeIfNeeded() {
         cachedCommand = null;
         if (SongPlayer.MC.interactionManager.getCurrentGameMode() != GameMode.CREATIVE) {
-            sendGamemodeCommand(Config.getConfig().creativeCommand);
+            sendMessage(Config.getConfig().creativeCommand);
         }
     }
     private void setSurvivalIfNeeded() {
         cachedCommand = null;
         if (SongPlayer.MC.interactionManager.getCurrentGameMode() != GameMode.SURVIVAL) {
-            sendGamemodeCommand(Config.getConfig().survivalCommand);
+            sendMessage(Config.getConfig().survivalCommand);
         }
     }
 
